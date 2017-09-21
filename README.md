@@ -101,7 +101,7 @@ Setup: Unilamellar lipid bilayers exist for a variety of concentrations. Certain
  - Target temperature: determined also by desired membrane phase; the main transition temperature of interest is the gel-to-liquid phase transition temperature, above which the membrane exists in a disordered liquid crystalline L$_\alpha$ state and below which the membrane exists in an ordered gel L$_\beta$ state. Some models may capture intermediate tilted gel L$_\beta’$, ripple, and interdigitated phases whose relevance depends on the experiments you are trying to model. Most simulations approximate a cellular membrane as a fluid lipid bilayer, and build heterogeneity in later.
  - Thermostat (see general interfacial system recommendations as well)
     - For CG and IS models, a stochastic dynamics integrator/thermostat (e.g. Langevin or Brownian dynamics) may be prescribed. The Langevin thermostat is not guaranteed to accurately capture long-range hydrodynamics, but efforts have been made to improve hydrodynamics for IS CG models (see: Lyman, Atzberger).
- - Target ensemble: the main ones of relevance for lipid membranes are NVT and NP$_z$P$_xy$T (or NP$_z$tT, the multiphase ensemble, where t is the frame tension). The latter involves pressure control in a semiisotropic scheme, which controls the xy and z pressures independently. Since soft matter and biological membranes often operate at negligible tension (as their conjugate variable, the area per lipid, is unconstrained and therefore used to minimize the free energy), tensionless membranes are currently the most common. NVT is appropriate for closed vesicles, due to their isotropic nature. The multiphase ensemble (semiisotropic pressure coupling) is preferred for planar bilayers. For membranes, the definition of tension is a precarious one that might not be trivial to a newcomer. While there is an important distinction between the frame tension, conjugate to the frame area (the box x and y dimensions), and the Laplace tension , conjugate to the fluctuating membrane contour area, it has been clearly shown through thermodynamic arguments that these tensions and areas are directly related, and therefore not independent (Diamant. Phys. Rev. E, 2011.). The Laplace tension is defined to a first approximation as $\gamma$ = L$_z$/2(P$_z$-(P$_x$+P$_y$)/2), and both tensions reduce to zero when the component pressures are set to be equal.
+ - Target ensemble: the main ones of relevance for lipid membranes are NVT and NP$_z$P$_xy$T (or NP$_z$tT, the multiphase ensemble, where t is the frame tension). The latter involves pressure control in a semiisotropic scheme, which controls the xy and z pressures independently. Since soft matter and biological membranes often operate at negligible tension (as their conjugate variable, the area per lipid, is unconstrained and therefore used to minimize the free energy), tensionless membranes are currently the most common. NVT is appropriate for closed vesicles, due to their isotropic nature. The multiphase ensemble (semiisotropic pressure coupling) is preferred for planar bilayers. For membranes, the definition of tension is a precarious one that might not be trivial to a newcomer. While there is an important distinction between the frame tension t and the Laplace tension $\gamma$, conjugate to the fluctuating membrane contour area, it has been clearly shown through thermodynamic arguments that these tensions and areas are directly related, and therefore not independent (Diamant. Phys. Rev. E, 2011.). The Laplace tension is defined to a first approximation as $\gamma$ = L$_z$/2(P$_z$-(P$_x$+P$_y$)/2), and both tensions reduce to zero when the component pressures are set to be equal.
     - However, phase coexistence studies should employ NVT, as the total area for the multiphase (e.g. fluid and gel) membrane must be intermediate to the total areas of the pure fluid and pure gel membranes (with proportions of fluid and gel phase lipids determinable, e.g. via the lever rule).
     - Additional (if relevant to simulation ensemble):
         - Compressibilities: inverse to some other interfacial simulations (e.g. SAMs on a gold surface in water), where the in-plane compressibilities are set to zero to preserve hydrocarbon area per molecule, tilt, and density, membrane simulations are usually set to be compressible in the xy plane, and sometimes even incompressible in z (especially for IS CG models).
@@ -112,34 +112,31 @@ Setup: Unilamellar lipid bilayers exist for a variety of concentrations. Certain
 
 # IV. Properties to check (are you simulating what you want?)
 
-“Fluid” (liquid crystalline) lipid membranes are normally modeled as liquid-like laterally (no in-plane shear modulus), and solid-like transversally. Because of this, important properties include in-plane elasticity/dynamics and out-of-plane elasticity.
+“Fluid” (liquid crystalline) lipid membranes are normally modeled as liquid-like laterally (no in-plane shear modulus), and solid-like transversally. Because of this, important properties include in-plane elasticity/dynamics and out-of-plane elasticity. These properties include:
 
  - Lateral density profile/membrane thickness: Various regional models have been proposed to characterize the membrane based on its component and overall densities.
-    - Compute X-ray scattering (electron density)
-    - Neutron scattering
+    - Atomic densities: typical local density hierarchy is explained by a four-region model: region 2 ("interface") > region 3 ("soft polymer") > region 1 ("perturbed water") > region 4 ("decane") (Tieleman, Marrink, and Berendsen. Biochimica et Biophysica Acta, 1997.)
+        - Neutron scattering
+    - Electron densities: generally the same trends as above (e.g. Klauda et al. J. Phys. Chem. B, 2010.)
+        - Compute X-ray scattering (electron density)
     - Must compute scattering profiles and compare to experiment, NOT compare density profile to the “experimental ones”
+        - Reasons?
     - Electrostatic potential (charge density), see Sachs … Woolf from ~early 2000s on the correct way to handle periodicity
  - Area per lipid: The value for double-tailed phospholipids is generally larger than single-chain hydrocarbons in systems like SAMs (60 $\AA^2$/molecule as opposed to 30-40 $\AA^2$/molecule).
+     - Thermodynamics/mechanics: area compressibility modulus: Theoretically (e.g. based on polymer brush theories), the K$_A$ is sometimes related to the oil-water interfacial tension.
+     - Frame (box) area → contour area: this will allow for a deconvolution of undulations from area compressibility; to remove the effect of finite length scale undulations, results can also be extrapolated to a zero-sized membrane, where undulations no longer exist
  - Deuterium P$_2$ NMR order parameter: This parameter describes the alignment of lipid constituent bonds with the global membrane normal, and will vary along the length of the lipid tail group chains, and between liquid crystalline and gel phase lipids.
     - Area and NMR parameters are tightly coupled.  Area fluctuates on slow timescale (10s-100s of ns).
     - Computing error bars is tricky.  See order_parameters tool in LOOS for one approach
  - Lipid lateral diffusivity: This measure is used to characterize lipid mobility, to gain insight into collective lipid motion timescales, and also potentially to discriminate between liquid crystalline and gel phase lipids.
     - Be careful of artifacts due to lipid molecules partially or fully jumping across periodic boxes; account for periodicity by reimaging where appropriate.  Major box size dependence -- Yeh and Hummer
- - Thermodynamics/mechanics: area compressibility modulus: Theoretically (e.g. based on polymer brush theories), the K$_A$ is sometimes related to the oil-water interfacial tension.
- - Frame (box) area → contour area: this will allow for a deconvolution of undulations from area compressibility; to remove the effect of finite length scale undulations, results can also be extrapolated to a zero-sized membrane, where undulations no longer exist
+    - Diffusivity/PBC effects: http://aip.scitation.org/doi/10.1063/1.4932980
  - Mechanics: fluctuation spectrum and bending modulus. For a tensionless membrane, the large wavelength/small wavevector behavior of the undulation spectrum (describing the height-height correlations of the membrane continuum shape) should follow an inverse fourth power relation in the wavevector, with a constant of proportionality that contains the bending modulus.
+     - Comprehensive mechanics: http://www.sciencedirect.com/science/article/pii/S0009308415300190
  - Lipid coordination number: this can be used in phase transitions and coexistence to distinguish between fluid and gel phases, which have markedly different coordination numbers. (There are several other structural, thermodynamic, and dynamic techniques for detecting and characterizing phase transitions and coexistence outlined above.)
  - Lateral radial distribution functions to characterize segregation of multicomponent bilayers (e.g. does cholesterol segregate with lipid X vs Y)
  - System size effects (cf. Waheed and Edholm)
     - Area per lipid
     - Area compressibility modulus
     - Bending modulus: as shown through renormalization group theory, the membrane softens at larger length scales, resulting in a lower bending modulus (cf. Pelitti and Leibler).
-    - Diffusion coefficient (Yeh and Hummer)
-    - Frank Brown had an excellent paper in ~2015 with Pastor and a few others
-
-Diffusivity/PBC effects:
-http://aip.scitation.org/doi/10.1063/1.4932980
-
-Mechanical:
-http://www.sciencedirect.com/science/article/pii/S0009308415300190
-
+    - Diffusion coefficient (reiteration; Yeh and Hummer; Brown/Camley/Pastor)
