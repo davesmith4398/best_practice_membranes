@@ -1,4 +1,21 @@
-Simulation Best Practices for Lipid (and Other?) Membranes
+# Simulation Best Practices for Lipid Membranes
+
+Best Practices document to be submitted to the Living Journal of Computational Molecular Science
+
+Contributors: David Smith (davesmith4398), Alan Grossfield (agrossfield), Ed Lyman, Michael Shirts (mrshirts)
+People to (possibly) invite: Scott Feller, Richard Pastor
+
+The GitHub document is:
+
+https://github.com/davesmith4398/best_practice_membranes
+
+
+# Introduction and Scope
+
+Goal: establish reliable and robust standardization of settings and setup practices for practical molecular dynamics simulations of pure lipid bilayer membranes.
+
+Key terms?
+
 
 
 
