@@ -16,40 +16,39 @@ Goal: establish reliable and robust standardization of settings and setup practi
 
 Key terms?
 
+Background
 
-
-
-Lipid Membranes
 Lipid bilayer membranes (planar and vesicular) have applications in soft matter physics, pharmacology, consumer products, etc., and are first approximants to biological membranes. Lipid bilayers consist of two molecularly-thick layers, or leaflets, in aqueous solvent, where the lipids are oriented with their polar head groups outward and their nonpolar tail groups inward. The dominant driving forces in their formation and stability include hydrophobic and dispersion interactions, wherein the lipid tail groups maximize their contacts with each other and minimize their contacts with water, decreasing area per lipid; and head group electrostatic repulsion and tail group conformational entropy, which work to increase the area per lipid. “Fluid” (liquid crystalline) lipid membranes are normally modeled as liquid-like laterally (no in-plane shear modulus), and solid-like transversally (out of plane). In lipid membrane simulations, the canonical system is DPPC (dipalmitoylphosphatidylcholine) in water. This is typically the system for which new force fields are first tested. DPPC is sometimes not preferred in experiments, however, due to its high melting point (from the gel to liquid-crystalline state). In any event, the main goal for a lipid membrane model study should be to correctly capture the correct structural, mechanical, thermodynamic, and/or dynamic properties (whatever is relevant) at the relevant length and timescales and the correct equilibrium (thermodynamic, temperature, pressure, etc.) and/or nonequilibrium (thermal/mechanical/chemical/other gradients) conditions. Transferability is ideal, but not necessarily a priority.
 
 Some good papers/textbooks for statistical mechanical/thermodynamic background on membranes
-Safran, Samuel A. “Statistical Thermodynamics of Surfaces, Interfaces, and Membranes.” 2003: Westview Press.
-Nelson, D.; Piran, T.; and Weinberg, T. “Statistical Mechanics of Membranes and Surfaces.” 2004: World Scientific Publishing Company.
-Boal, David. “Mechanics of the Cell.” 2012: Cambridge University Press, New York.
+ - Safran, Samuel A. “Statistical Thermodynamics of Surfaces, Interfaces, and Membranes.” 2003: Westview Press.
+ - Nelson, D.; Piran, T.; and Weinberg, T. “Statistical Mechanics of Membranes and Surfaces.” 2004: World Scientific Publishing Company.
+ - Boal, David. “Mechanics of the Cell.” 2012: Cambridge University Press, New York.
  
 Good papers/textbooks for computational/simulation guidance on membranes
-Sundararajan, V. “Computational Modeling of Membrane Bilayers, Volume 60 (Current Topics in Membranes).” 2008: Academic Press.
-Tieleman, Marrink, and Berendsen. Biochimica et Biophysica Acta, 1997.
+ - Sundararajan, V. “Computational Modeling of Membrane Bilayers, Volume 60 (Current Topics in Membranes).” 2008: Academic Press.
+ - Tieleman, Marrink, and Berendsen. Biochimica et Biophysica Acta, 1997.
 
 
+# The Checklist
+# I. Force field/model selection
 
-I. Force field/model selection
 As with other systems, model selection for lipid membranes is crucial. Since the efficiency of planar membrane simulations scales geometrically with the square of the in-plane box length and in equilibration with the fourth power of the box length, the total scaling can be up to the sixth power of the box length. Again, the main goal is accuracy in properties at the relevant spatiotemporal resolution and equilibrium/nonequilibrium resolution. As for model resolution, lipid force fields range from all-atom to united atom to coarse-grained (CG) and from explicit to implicit solvent. Atomistic models can have hundreds of atomic sites per lipid molecule, while models like the Martini CG force field can have around ten pseudoatom sites and dissipative particle dynamics (DPD) simulations can have just two or three. Because the aqueous solvent can contribute up to 90 percent of the force evaluations, implicit solvent (IS) simulations can also be very advantageous. Lower-resolution models can extend accessible length and timescales from about tens of nanometers and hundreds of nanoseconds to hundreds of nanometers and tens of microseconds, but are sometimes deficient in capturing solvent-mediated effects, entropic driving forces, and hydrodynamics. For lipid membranes, there is also an extensive sub-community that uses continuum mechanical theory and field-theoretic simulations that are sometimes in fact the preferred approach at larger length scales due to their efficiency. For lipid membrane studies, it is often crucial to compare with these techniques, and evaluate whether or not a continuum approach would be better.
 
 
 ***For the sections below, good to first consult the Interfacial Systems practices, which should be consistent with this one (with major differences and nuances always noted).***
 
 
-II. Preparing initial configurations
+# II. Preparing initial configurations
 
 Out of convention, the membrane in-plane directions are often defined/set to be the x and y directions, while the out-of-plane direction is defined as z. All subsequent items assume this directionality, but the choice of direction is otherwise arbitrary.
 
 Setup: Unilamellar lipid bilayers exist for a variety of concentrations. Certain force fields at a certain resolution normally prescribe some number of water molecules for every lipid. For a planar bilayer, given a desired number of lipids or membrane size in the xy-plane (which can be estimated from one another if the area per lipid is roughly known), the concentration/amount of solvent can be independently varied by changing the box z-dimension. For a vesicle, the total membrane area must be smaller than the smallest plane in periodic box; otherwise, the lipids will form a planar bilayer to minimize the free energy. There are actually two main methods for setting up planar bilayers and vesicles: (1) templating and (2) self-assembly.
 
-In the former, lipid amphiphiles are pre-assembled in a planar or vesicular bilayer. Due to core overlaps for both and leaflet number asymmetry for vesicles (especially at smaller radii), existing packages and routines are probably preferred. CHARMM-GUI is an excellent resource, and the most common for setting up membranes in a variety of configurations and for a variety of models/force fields. Per the general interfacial system recommendation of combining systems one at a time, the membrane can then be solvated. Due to the fluctuating nature and molecular scale roughness of lipid membranes, a trial-and-error solvation routine may be preferred over appending solvent “slabs” to each side of the membrane (although judgment can be used to determine which one will be more efficient).
+ - In the former, lipid amphiphiles are pre-assembled in a planar or vesicular bilayer. Due to core overlaps for both and leaflet number asymmetry for vesicles (especially at smaller radii), existing packages and routines are probably preferred. CHARMM-GUI is an excellent resource, and the most common for setting up membranes in a variety of configurations and for a variety of models/force fields. Per the general interfacial system recommendation of combining systems one at a time, the membrane can then be solvated. Due to the fluctuating nature and molecular scale roughness of lipid membranes, a trial-and-error solvation routine may be preferred over appending solvent “slabs” to each side of the membrane (although judgment can be used to determine which one will be more efficient).
 
-General procedure:
-Generate starting structure
+    - General procedure:
+        - Generate starting structure
 CHARMM-GUI
 Most commonly used package
 Packs lipids from a library, then relaxes clashes
