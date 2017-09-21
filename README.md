@@ -10,6 +10,8 @@ The GitHub document is:
 
 https://github.com/davesmith4398/best_practice_membranes
 
+***Might be nice to have a good image of large, fluctuating lipid bilayer membrane here. Maybe even one planar and one vesicular.***
+
 
 # Introduction and Scope
 
@@ -73,20 +75,21 @@ Setup: Unilamellar lipid bilayers exist for a variety of concentrations. Certain
         - Doesn’t capture preferential segregation of multicomponent bilayers, which can be slow to emerge (so you may have a very long equilibration time that’s not obvious)
         - You need to know what you want (say what’s in what leaflet, etc), and what you want might be wrong
 
- - SELF-ASSEMBLY: the desired number of lipids is solvated in a water box, then allowed to spontaneously assemble into a vesicle or planar bilayer through a simulation in the NVT or NPT ensemble. The proof-of-concept approach is more scientifically satisfying, but not necessarily reasonable for higher resolution models due to the long timescale of assembly. Because the system will always proceed to minimize its total free energy, the initial box dimensions is crucial to the outcome of the self-assembly approach. For a planar bilayer, the in-plane box dimensions must be initialized near their intended end state (which can be predicted with the number of lipids and area per lipid), and for a vesicle, all box areas must be significantly larger than the corresponding planar bilayer with the same number of lipids (otherwise, the lipids will form a planar bilayer and not a vesicle). For one example of this second technique, you can visit the Martini website (http://www.cgmartini.nl/index.php/tutorials-general-introduction/bilayers).
+ - SELF-ASSEMBLY: the desired number of lipids is solvated in a water box, then allowed to spontaneously assemble into a vesicle or planar bilayer through a simulation in the NVT or NPT ensemble. The proof-of-concept approach is more scientifically satisfying, but not necessarily reasonable for higher resolution models due to the long timescale of assembly. Because the system will always proceed to minimize its total free energy, the initial box dimensions are crucial to the outcome of the self-assembly approach. For a planar bilayer, the in-plane box dimensions must be initialized near their intended end state (which can be predicted with the number of lipids and area per lipid), and for a vesicle, all box areas must be significantly larger than the corresponding planar bilayer with the same number of lipids (otherwise, the lipids will form a planar bilayer and not a vesicle). For one example of this second technique, you can visit the Martini website (http://www.cgmartini.nl/index.php/tutorials-general-introduction/bilayers).
 
     - General procedure:
         - Generate starting structure (lipids in solution)
         - Minimize (no dynamics) to remove bad contacts
         - Anneal from 0 K to target temperature in relevant ensemble, possibly with position restraints on all sites. For soft enough interactions, you may be able to skip this step.
         - Self-assembly in NVT or NPT. The time for this to complete can vary widely with initial configuration. Once a vesicle or planar bilayer is formed, the bilayer or vesicle can be reoriented if desired (e.g. such that x and y are the in-plane directions).
-        - Equilibrate in target ensemble; equilibration times vary with systems size and phenomenon of interest
+        - Equilibrate in target ensemble; equilibration times vary with system size and phenomenon of interest
     - Strengths
         - “Natural”: lets things segment the way they want to
             - Great if you know the overall composition but not the distribution
         - Easy (at least with CG calculations) -- scatter and run
     - Weaknesses
-        - Less reproducible -- bilayers won’t be symmetric, leaflets won’t necessarily have same composition.  Can be problematic with small systems
+        - Less reproducible -- bilayers won’t be symmetric, leaflets won’t necessarily have same composition
+        - Can be problematic with small systems
         - Relatively expensive
 
 
