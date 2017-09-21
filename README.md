@@ -3,6 +3,7 @@
 Best Practices document to be submitted to the Living Journal of Computational Molecular Science
 
 Contributors: David Smith (davesmith4398), Alan Grossfield (agrossfield), Ed Lyman, Michael Shirts (mrshirts)
+
 People to (possibly) invite: Scott Feller, Richard Pastor
 
 The GitHub document is:
