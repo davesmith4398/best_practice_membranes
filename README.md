@@ -12,6 +12,9 @@ https://github.com/davesmith4398/best_practice_membranes
 
 ***Might be nice to have a good image of large, fluctuating lipid bilayer membrane here. Maybe even one planar and one vesicular.***
 
+![Alt Text](https://github.com/davesmith4398/best_practice_membranes/blob/master/vesicle_half_pic.tga)
+<img src="https://github.com/davesmith4398/best_practice_membranes/blob/master/vesicle_half_pic.tga" width="100" height="100"/>
+
 
 # Introduction and Scope
 
