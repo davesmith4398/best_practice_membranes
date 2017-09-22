@@ -131,6 +131,7 @@ Setup: Unilamellar lipid bilayers exist for a variety of concentrations. Certain
  - Lipid lateral diffusivity: This measure is used to characterize lipid mobility, to gain insight into collective lipid motion timescales, and also potentially to discriminate between liquid crystalline and gel phase lipids.
     - Be careful of artifacts due to lipid molecules partially or fully jumping across periodic boxes; account for periodicity by reimaging where appropriate.  Major box size dependence -- Yeh and Hummer (http://pubs.acs.org/doi/pdf/10.1021/jp0477147)
     - Diffusivity/PBC effects: Camley et al., J. Chem. Phys., 2015 (http://aip.scitation.org/doi/10.1063/1.4932980)
+ - Lateral stress profile
  - Mechanics: fluctuation spectrum and bending modulus. For a tensionless membrane, the large wavelength/small wavevector behavior of the undulation spectrum (describing the height-height correlations of the membrane continuum shape) should follow an inverse fourth power relation in the wavevector, with a constant of proportionality that contains the bending modulus.
      - Comprehensive mechanics: http://www.sciencedirect.com/science/article/pii/S0009308415300190
  - Lipid coordination number: this can be used in phase transitions and coexistence to distinguish between fluid and gel phases, which have markedly different coordination numbers. (There are several other structural, thermodynamic, and dynamic techniques for detecting and characterizing phase transitions and coexistence outlined above.)
