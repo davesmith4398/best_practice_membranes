@@ -121,7 +121,7 @@ Setup: Unilamellar lipid bilayers exist for a variety of concentrations. Certain
         - Compute X-ray scattering (electron density)
     - Must compute scattering profiles and compare to experiment, NOT compare density profile to the “experimental ones”
         - Reasons?
-    - Electrostatic potential (charge density), see Sachs … Woolf from ~early 2000s on the correct way to handle periodicity
+    - Electrostatic potential (charge density): in order to simulate biologically relevant transmembrane voltage gradients, there are several possible simulation "tricks." The major problem is the need to use PBCs in simulations, which prevent the setup of a charge gradient. A well-accepted solution is to simulate two bilayers in a single simulation cell, separating the salt baths for the charge gradient. For more details, see Sachs, Crozier, and Woolf, J. Chem. Phys., 2004. http://aip.scitation.org/doi/pdf/10.1063/1.1826056
  - Area per lipid: The value for double-tailed phospholipids is generally larger than single-chain hydrocarbons in systems like SAMs (60 $\AA^2$/molecule as opposed to 30-40 $\AA^2$/molecule).
      - Thermodynamics/mechanics: area compressibility modulus: Theoretically (e.g. based on polymer brush theories), the K$_A$ is sometimes related to the oil-water interfacial tension.
      - Frame (box) area → contour area: this will allow for a deconvolution of undulations from area compressibility; to remove the effect of finite length scale undulations, results can also be extrapolated to a zero-sized membrane, where undulations no longer exist
