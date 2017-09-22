@@ -116,11 +116,10 @@ Setup: Unilamellar lipid bilayers exist for a variety of concentrations. Certain
 
  - Lateral density profile/membrane thickness: Various regional models have been proposed to characterize the membrane based on its component and overall densities.
     - Atomic densities: typical local density hierarchy is explained by a four-region model: region 2 ("interface") > region 3 ("soft polymer") > region 1 ("perturbed water") > region 4 ("decane") (Tieleman, Marrink, and Berendsen. Biochimica et Biophysica Acta, 1997.)
-        - Neutron scattering
     - Electron densities: generally the same trends as above (e.g. Klauda et al. J. Phys. Chem. B, 2010.)
-        - Compute X-ray scattering (electron density)
     - Must compute scattering profiles and compare to experiment, NOT compare density profile to the “experimental ones”
         - Reasons?
+        - SAXS/SANS comparisons: http://pubs.acs.org/doi/pdf/10.1021/jp401718k
     - Electrostatic potential (charge density): in order to simulate biologically relevant transmembrane voltage gradients, there are several possible simulation "tricks." The major problem is the need to use PBCs in simulations, which prevent the setup of a charge gradient. A well-accepted solution is to simulate two bilayers in a single simulation cell, separating the salt baths for the charge gradient. For more details, see Sachs, Crozier, and Woolf, J. Chem. Phys., 2004. http://aip.scitation.org/doi/pdf/10.1063/1.1826056
  - Area per lipid: The value for double-tailed phospholipids is generally larger than single-chain hydrocarbons in systems like SAMs (60 $\AA^2$/molecule as opposed to 30-40 $\AA^2$/molecule).
      - Thermodynamics/mechanics: area compressibility modulus: Theoretically (e.g. based on polymer brush theories), the K$_A$ is sometimes related to the oil-water interfacial tension.
@@ -136,8 +135,8 @@ Setup: Unilamellar lipid bilayers exist for a variety of concentrations. Certain
      - Comprehensive mechanics: http://www.sciencedirect.com/science/article/pii/S0009308415300190
  - Lipid coordination number: this can be used in phase transitions and coexistence to distinguish between fluid and gel phases, which have markedly different coordination numbers. (There are several other structural, thermodynamic, and dynamic techniques for detecting and characterizing phase transitions and coexistence outlined above.)
  - Lateral radial distribution functions to characterize segregation of multicomponent bilayers (e.g. does cholesterol segregate with lipid X vs Y)
- - System size effects (cf. Waheed and Edholm)
+ - System size effects (cf. Waheed and Edholm, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2776294/pdf/main.pdf)
     - Area per lipid
     - Area compressibility modulus
-    - Bending modulus: as shown through renormalization group theory, the membrane softens at larger length scales, resulting in a lower bending modulus (cf. Pelitti and Leibler).
+    - Bending modulus: as shown through renormalization group theory, the membrane softens at larger length scales, resulting in a lower bending modulus (theory, cf. Peliti and Leibler: https://journals.aps.org/prl/pdf/10.1103/PhysRevLett.54.1690).
     - Diffusion coefficient (reiteration; Yeh and Hummer; Brown/Camley/Pastor)
