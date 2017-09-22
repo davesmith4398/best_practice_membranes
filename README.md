@@ -114,9 +114,11 @@ Setup: Unilamellar lipid bilayers exist for a variety of concentrations. Certain
 
 “Fluid” (liquid crystalline) lipid membranes are normally modeled as liquid-like laterally (no in-plane shear modulus), and solid-like transversally. Because of this, important properties include in-plane elasticity/dynamics and out-of-plane elasticity. These properties include:
 
- - Lateral density profile/membrane thickness: Various regional models have been proposed to characterize the membrane based on its component and overall densities.
-    - Atomic densities: typical local density hierarchy is explained by a four-region model: region 2 ("interface") > region 3 ("soft polymer") > region 1 ("perturbed water") > region 4 ("decane") (Tieleman, Marrink, and Berendsen. Biochimica et Biophysica Acta, 1997.)
-    - Electron densities: generally the same trends as above (e.g. Klauda et al. J. Phys. Chem. B, 2010.)
+ - Lateral density profile/membrane thickness:
+    - Various regional models have been proposed to characterize the membrane based on its component and overall densities.
+        - Atomic densities: typical local density hierarchy is explained by a four-region model: region 2 ("interface") > region 3 ("soft polymer") > region 1 ("perturbed water") > region 4 ("decane") (Tieleman, Marrink, and Berendsen. Biochimica et Biophysica Acta, 1997.)
+        - Electron densities: generally the same trends as above (e.g. Klauda et al. J. Phys. Chem. B, 2010.)
+    - Be careful with programs like g_density in GROMACS, which appear tabulate density averages based on absolute positions and not relative ones. Relative positions (via e.g. aligning statistics by membrane center) can be valuable when there are even minor fluctuations. In the case of lipid membranes, failure to correct for this can result in smearing of the density profile; one possible outcome is that region 4 (local lipid density drop in center) is not actually captured.
     - Must compute scattering profiles and compare to experiment, NOT compare density profile to the “experimental ones”
         - Reasons?
         - SAXS/SANS comparisons: http://pubs.acs.org/doi/pdf/10.1021/jp401718k
@@ -130,11 +132,15 @@ Setup: Unilamellar lipid bilayers exist for a variety of concentrations. Certain
  - Lipid lateral diffusivity: This measure is used to characterize lipid mobility, to gain insight into collective lipid motion timescales, and also potentially to discriminate between liquid crystalline and gel phase lipids.
     - Be careful of artifacts due to lipid molecules partially or fully jumping across periodic boxes; account for periodicity by reimaging where appropriate.  Major box size dependence -- Yeh and Hummer (http://pubs.acs.org/doi/pdf/10.1021/jp0477147)
     - Diffusivity/PBC effects: Camley et al., J. Chem. Phys., 2015 (http://aip.scitation.org/doi/10.1063/1.4932980)
- - Lateral stress profile
+ - Lateral stress profile: the lateral stress profile is another highly valuable quantity because (1) it proves whether or not your model qualitatively and quantitatively captures the competing forces in lipid bilayer assembly and stability and (2) it is the gateway to calculating a host of mechanical properties.
+     - One means of calculating: GROMACS-LS, a customized version of the MD package GROMACS. GROMACS-LS can even calculate stress component profiles, including those arising from van der Waals and electrostatic interactions.
+         - For more information about package and theory: http://mdstress.org/
  - Mechanics: fluctuation spectrum and bending modulus. For a tensionless membrane, the large wavelength/small wavevector behavior of the undulation spectrum (describing the height-height correlations of the membrane continuum shape) should follow an inverse fourth power relation in the wavevector, with a constant of proportionality that contains the bending modulus.
      - Comprehensive mechanics: http://www.sciencedirect.com/science/article/pii/S0009308415300190
  - Lipid coordination number: this can be used in phase transitions and coexistence to distinguish between fluid and gel phases, which have markedly different coordination numbers. (There are several other structural, thermodynamic, and dynamic techniques for detecting and characterizing phase transitions and coexistence outlined above.)
  - Lateral radial distribution functions to characterize segregation of multicomponent bilayers (e.g. does cholesterol segregate with lipid X vs Y)
+     - Unless interested otherwise, histograms should be binned by in-plane 2D radial distance (as opposed to standard RDFs in 3D), and binned separately for each leaflet (otherwise, liquid and solid structural signatures are convoluted and lack meaning).
+         - What is the best practice for determining the leaflet designation (upper/lower; proximal/distal) of each lipid? I personally determine the height function of the entire bilayer in high-resolution gridspace (cf. recommended procedure in Watson et al. J. Chem. Phys., 2011 / Appendix C), then go back and sort into leaflets. This could potentially be extended to vesicle systems, but would be more complicated, and this procedure isn't generalizable to membranes with large deformations (especially those that undergo morphological and even topological changes).
  - System size effects (cf. Waheed and Edholm, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2776294/pdf/main.pdf)
     - Area per lipid
     - Area compressibility modulus
