@@ -1,0 +1,14 @@
+# ignore the files that latex generates upon build
+
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.bib-stamp
+*.suppinfo
+
+# ignore other temp files from vim etc
+*.sw*
+*.bak
+.idea/
