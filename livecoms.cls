@@ -123,7 +123,7 @@
 % \captionsetup*[table]{skip=\medskipamount}
 
 
-\RequirePackage[super,sort&compress]{natbib}
+\RequirePackage[square,numbers,sort&compress]{natbib}
 \RequirePackage{natmove}
 \renewcommand{\bibfont}{\small}
 % modifed from https://github.com/gbhutani/vancouver_authoryear_bibstyle/
@@ -218,8 +218,8 @@
 % nothing
 \fi
 
-\ifdocumenttype
 \fancyhf{}
+\ifdocumenttype
 \chead{%
 \setlength{\fboxsep}{3pt}
 \colorbox{LiveCoMSMediumGrey}{\begin{minipage}{\headwidth}\centering\color{white} A LiveCoMS \documenttype\end{minipage}}%
@@ -330,7 +330,30 @@
 %% Added for LiveComs
 \RequirePackage{environ}
 \RequirePackage{textpos}
+
+%% Abstract outside frontmatter will throw an error!
+\RenewEnviron{abstract}{%
+  \ClassError{livecome}
+  {Nope nope nope, please put the abstract inside the frontmatter environment.}
+  {Please put the abstract inside the frontmatter environment.}
+}
+
 \NewEnviron{frontmatter}{%
+  %% Define abstract's behavior when placed in frontmatter
+  \renewenvironment{abstract}{%
+     \setlength{\parindent}{0pt}\raggedright
+     \raisebox{-16pt-\baselineskip}[0pt][0pt]{\makebox[0pt][r]{\parbox[t]{3cm}{%
+       \raggedright\itshape\footnotesize\@blurb\par\medskip%
+       This version dated \@date%
+     }\hspace*{1cm}}}%
+     \textcolor{LiveCoMSMediumGrey}{\rule{\textwidth}{2pt}}
+     \vskip16pt
+     \textcolor{LiveCoMSLightBlue}{\large\bfseries\abstractname\space}
+  }{%
+     \vskip8pt
+     \textcolor{LiveCoMSMediumGrey}{\rule{\textwidth}{2pt}}
+     \vskip16pt
+  }
   \twocolumn[%
     \protecting{%\begin{minipage}[b]{3cm}
     % \small\itshape
@@ -350,18 +373,6 @@
   \vskip16pt
   {\@author\par}
   \vskip8pt
-}
-
-\renewenvironment{abstract}{%
-   \setlength{\parindent}{0pt}\raggedright
-   \raisebox{-16pt-\baselineskip}[0pt][0pt]{\makebox[0pt][r]{\parbox[t]{3cm}{\raggedright\itshape\footnotesize\@blurb}\hspace*{1cm}}}%
-   \textcolor{LiveCoMSMediumGrey}{\rule{\textwidth}{2pt}}
-   \vskip16pt
-   \textcolor{LiveCoMSLightBlue}{\large\bfseries\abstractname\space}
-}{%
-   \vskip8pt
-   \textcolor{LiveCoMSMediumGrey}{\rule{\textwidth}{2pt}}
-   \vskip16pt
 }
 
 %% Insert a grey line to separate floats from main text
@@ -593,7 +604,7 @@
 %   \end{mdframed}
 % }
 
-\RequirePackage[colorlinks=true,allcolors=black,citecolor=LiveCoMSMediumGrey,linkcolor=LiveCoMSMediumGrey,urlcolor=LiveCoMSLightBlue]{hyperref}
+\RequirePackage[colorlinks=true,allcolors=black,citecolor=LiveCoMSLightBlue,linkcolor=LiveCoMSMediumGrey,urlcolor=LiveCoMSLightBlue]{hyperref}
 \urlstyle{sf}
 
 % Other desired commands
