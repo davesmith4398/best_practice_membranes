@@ -7,6 +7,7 @@ This repository contains a document and supporting materials to lay out best pra
 # List of Authors
 
 -David J. Smith, University of California, Santa Barbara, Santa Barbara, CA, USA
+
 -Alan Grossfield, University of Rochester Medical Center, Rochester, NY, USA
 
 # List of Contributors
@@ -28,5 +29,7 @@ This paper is being developed as a living document, open to changes from the com
 # Changelog
 
 -12 Jan 2018: Added significant amount of detail to all components of document; added a host of variables and equations, as well as images, tables, and references; reformatted contents to fit LiveCoMS Best Practices document format in LaTeX.
+
 -Sep 2017: Added initial collection of content to GitHub via README page here.
+
 -Aug/Sep 2017: Branched off from Interfacial Systems Best Practices Document in Google Docs (for liquid-liquid and solid-liquid interfaces) and created self-contained document for lipid bilayer membranes.
