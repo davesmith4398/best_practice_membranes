@@ -264,7 +264,7 @@ where $R$ is the vesicle radius defined from the center to the bilayer midplane.
 
 For a vesicle, the total membrane area must be smaller than the smallest plane in periodic box; otherwise, the lipids will form a planar bilayer to minimize the free energy.
 (As shown earlier, the cost of forming a vesicle from a planar membrane incurs at least a bending and Gaussian curvature energetic penalty.)
-Furthermore, simulating a membrane area smaller than the smallest plane in the periodic box does not ensure the formation of a stable vesicle; in fact, a pancake structure (bilayer patch with splayed edges) is more stable up to a critical size on the order of a 10 nm radius, and therefore $10^3$ to $10^4$  total lipids! 
+Furthermore, simulating a membrane area smaller than the smallest plane in the periodic box does not ensure the formation of a stable vesicle; in fact, a pancake structure (bilayer patch with splayed edges) is more stable up to a critical size on the order of a 10 nm radius, and therefore $10^3$ to $10^4$  total lipids!
 
 Once the number of lipids and solvent molecules and periodic box dimensions are determined, there are two main methods for putting them all together: (1) ``templating'' and (2) self-assembly.
 
@@ -388,7 +388,7 @@ The metric is defined as:
 
 \begin{equation}
 	\label{e:partition}
-	S_{CD}=1/2<3cos^2\theta-1>
+	S_{CD}=\frac{1}{2} \left | \left<3\cos^2\theta-1 \right>\right|
 \end{equation}
 
 A value of 1 indicates perfectly alignment of the chain with the global bilayer normal, while -0.5 indicates anti-alignment.
@@ -735,7 +735,7 @@ Inverse to some other interfacial simulations (e.g. SAMs on a gold surface in wa
 See general interfacial system recommendations as well...
 A lot of these recommendations come with the model/force field.
 Does this include time step, ...???
-Need consensus on: center of mass motion removal, weak coupling, re-randomization of velocities, 
+Need consensus on: center of mass motion removal, weak coupling, re-randomization of velocities,
 
 For information on nonequilibrium simulations of lipid bilayers, the following resources may be helpful...
 
@@ -770,7 +770,7 @@ In [Table X], we outline some major advantages and disadvantages of both.
 \hline
 Templating & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Directly construct a sane-looking bilayer \item Efficient \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Doesn't capture preferential segregation of multicomponent bilayers, which can be slow to emerge \item You need to know what's in what leaflet, etc.; can lead to user bias if arrangement is not known \end{itemize} \end{minipage} \\
 \hline
-Self-Assembly & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item ``Natural'': lets things assemble the way they want \item Great if you know overall composition but not distribution \item Easy (at least with CG calculations) -- scatter and run \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Less reproducible -- bilayers won't be symmetric; leaflets won't necessarily have same composition \item Can be problematic with small systems \item Relatively expensive \end{itemize} \end{minipage} \\                                                                                            
+Self-Assembly & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item ``Natural'': lets things assemble the way they want \item Great if you know overall composition but not distribution \item Easy (at least with CG calculations) -- scatter and run \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Less reproducible -- bilayers won't be symmetric; leaflets won't necessarily have same composition \item Can be problematic with small systems \item Relatively expensive \end{itemize} \end{minipage} \\
 \hline
 \end{tabularx}
 \end{table*}
@@ -822,11 +822,11 @@ In general terms, we outline the merits of each umbrella of approaches for calcu
 \hline
 \textbf{Class of Methods} & \textbf{Advantages} & \textbf{Disadvantages} \\
 \hline
-Equilibrium Fluctuations & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Theoretically consistent/rigorous and elegant (admitted directly from Landau-Ginzburg and related approaches, e.g. Canham-Helfrich) \item No additional user input required (just run the simulation!) \item Well documented and generally the preferred choice in the membrane theory and simulation community \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Can only study and apply results to small deformation limit; not necessarily relevant to strong deformations [Hu, Diggins, and Deserno] \item Can take a long time for statistics to converge / fluctuations to develop [Harmandaris and Deserno] \item Low signal-to-noise ratio \item Grid analysis in post-processing can be expensive \end{itemize} \end{minipage} \\   
+Equilibrium Fluctuations & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Theoretically consistent/rigorous and elegant (admitted directly from Landau-Ginzburg and related approaches, e.g. Canham-Helfrich) \item No additional user input required (just run the simulation!) \item Well documented and generally the preferred choice in the membrane theory and simulation community \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Can only study and apply results to small deformation limit; not necessarily relevant to strong deformations [Hu, Diggins, and Deserno] \item Can take a long time for statistics to converge / fluctuations to develop [Harmandaris and Deserno] \item Low signal-to-noise ratio \item Grid analysis in post-processing can be expensive \end{itemize} \end{minipage} \\
 \hline
-Local Thermodynamics / Stress Profile & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Theoretically motivated \item No additional user input required (just run the simulation!) \item Consistent with rationale for simulation pressure coupling scheme and Laplace tension (and therefore frame tension), i.e. equation for justifying tension settings in simulation is a specific case \item The only route to calculating certain properties (tension, monolayer spontaneous curvature) \item Profile also be used to understand local stresses and molecular driving forces \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Rigorous implementation (although codes exist); expensive voxel analysis in post-processing \item Certain moments give you combinations of properties rather than individual ones, and are therefore dependent on other techniques \item Slow convergence \item Low signal-to-noise ratio (seeking small numbers often from largely-fluctuating ones) \end{itemize} \end{minipage} \\   
+Local Thermodynamics / Stress Profile & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Theoretically motivated \item No additional user input required (just run the simulation!) \item Consistent with rationale for simulation pressure coupling scheme and Laplace tension (and therefore frame tension), i.e. equation for justifying tension settings in simulation is a specific case \item The only route to calculating certain properties (tension, monolayer spontaneous curvature) \item Profile also be used to understand local stresses and molecular driving forces \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Rigorous implementation (although codes exist); expensive voxel analysis in post-processing \item Certain moments give you combinations of properties rather than individual ones, and are therefore dependent on other techniques \item Slow convergence \item Low signal-to-noise ratio (seeking small numbers often from largely-fluctuating ones) \end{itemize} \end{minipage} \\
 \hline
-Biased/Active Deformations & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Theoretically motivated \item Applicable to large-scale deformations (potentially more physically relevant), with a broader range of permissible deformations overall; capable of addressing nonlinear and higher-order effects on mechanical properties at higher deformations [Harmandaris and Deserno] \item Often more efficient, due to lesser importance of fluctuations and therefore also lesser importance of finite size effects [Harmandaris and Deserno] \item High signal-to-noise ratio \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Requires additional user input: some biasing scheme and/or nontrivial simulation setup (e.g. tether) for the calculation \end{itemize} \end{minipage} \\                                                                                        
+Biased/Active Deformations & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Theoretically motivated \item Applicable to large-scale deformations (potentially more physically relevant), with a broader range of permissible deformations overall; capable of addressing nonlinear and higher-order effects on mechanical properties at higher deformations [Harmandaris and Deserno] \item Often more efficient, due to lesser importance of fluctuations and therefore also lesser importance of finite size effects [Harmandaris and Deserno] \item High signal-to-noise ratio \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Requires additional user input: some biasing scheme and/or nontrivial simulation setup (e.g. tether) for the calculation \end{itemize} \end{minipage} \\
 \hline
 \end{tabularx}
 \end{table*}
