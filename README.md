@@ -31,6 +31,7 @@ This paper is being developed as a living document, open to changes from the com
 # List of Released Versions
 
 -v0.1: Added comprehensive content for the first draft of the document.
+
 -v1.0: Further refinement/wordsmithing, brushing up of checklist and tables, and establishment of all links to references, sections/subsections/subsubsections, tables, and other best practices documents.
 
 # Changelog
