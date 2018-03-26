@@ -8,11 +8,15 @@ This repository contains a document and supporting materials to lay out best pra
 
 -David J. Smith, University of California, Santa Barbara, Santa Barbara, CA, USA
 
--Alan Grossfield, University of Rochester Medical Center, Rochester, NY, USA
+People to invite:
+-Jeffery Klauda, University of Maryland, College Park, MD, USA
+-Alexander Sodt, National Institutes of Health, Bethesda, MD, USA
 
 # List of Contributors
 
-People to (possibly) invite: Ed Lyman, Scott Feller, Richard Pastor
+-Alan Grossfield, University of Rochester Medical Center, Rochester, NY, USA
+
+People to (possibly) invite: Scott Feller, Richard Pastor
 
 # Contributing to the effort
 
@@ -25,8 +29,11 @@ This paper is being developed as a living document, open to changes from the com
 # List of Released Versions
 
 -v0.1: Added comprehensive content for the first draft of the document.
+-v1.0: Further refinement/wordsmithing, brushing up of checklist and tables, and establishment of all links to references, sections/subsections/subsubsections, tables, and other best practices documents.
 
 # Changelog
+
+- 26 Mar 2018: Refined document further; completed all links to references, sections/subsections/subsubsections, tables, and other best practices documents.
 
 -12 Jan 2018: Added significant amount of detail to all components of document; added a host of variables and equations, as well as images, tables, and references; reformatted contents to fit LiveCoMS Best Practices document format in LaTeX.
 
