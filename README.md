@@ -9,7 +9,9 @@ This repository contains a document and supporting materials to lay out best pra
 -David J. Smith, University of California, Santa Barbara, Santa Barbara, CA, USA
 
 People to invite:
+
 -Jeffery Klauda, University of Maryland, College Park, MD, USA
+
 -Alexander Sodt, National Institutes of Health, Bethesda, MD, USA
 
 # List of Contributors
@@ -33,7 +35,7 @@ This paper is being developed as a living document, open to changes from the com
 
 # Changelog
 
-- 26 Mar 2018: Refined document further; completed all links to references, sections/subsections/subsubsections, tables, and other best practices documents.
+-26 Mar 2018: Refined document further; completed all links to references, sections/subsections/subsubsections, tables, and other best practices documents.
 
 -12 Jan 2018: Added significant amount of detail to all components of document; added a host of variables and equations, as well as images, tables, and references; reformatted contents to fit LiveCoMS Best Practices document format in LaTeX.
 
