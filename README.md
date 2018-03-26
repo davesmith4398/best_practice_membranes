@@ -32,11 +32,11 @@ This paper is being developed as a living document, open to changes from the com
 
 -v0.1: Added comprehensive content for the first draft of the document.
 
--v1.0: Further refinement/wordsmithing, brushing up of checklist and tables, and establishment of all links to references, sections/subsections/subsubsections, tables, and other best practices documents.
+-v1.0: Further refinement/wordsmithing; extensive sectioning, subsectioning, and subsubsectioning; brushing up of checklist and tables; and establishment of all links to references, sections/subsections/subsubsections, tables, and other best practices documents.
 
 # Changelog
 
--26 Mar 2018: Refined document further; completed all links to references, sections/subsections/subsubsections, tables, and other best practices documents.
+-26 Mar 2018: Refined document further; established efficient sections, subsections, and subsubsections; completed all links to references, sections/subsections/subsubsections, tables, and other best practices documents.
 
 -12 Jan 2018: Added significant amount of detail to all components of document; added a host of variables and equations, as well as images, tables, and references; reformatted contents to fit LiveCoMS Best Practices document format in LaTeX.
 
