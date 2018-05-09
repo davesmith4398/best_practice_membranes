@@ -8,13 +8,13 @@ This repository contains a document and supporting materials to lay out best pra
 
 -David J. Smith, University of California, Santa Barbara, Santa Barbara, CA, USA
 
--Jeffery Klauda, University of Maryland, College Park, MD, USA
+-Jeffery B. Klauda, University of Maryland, College Park, MD, USA
 
--Alexander Sodt, National Institutes of Health, Bethesda, MD, USA
+-Alexander J. Sodt, National Institutes of Health, Bethesda, MD, USA
 
 # List of Contributors
 
--Alan Grossfield, University of Rochester Medical Center, Rochester, NY, USA
+-Alan M. Grossfield, University of Rochester Medical Center, Rochester, NY, USA
 
 People to (possibly) invite: Scott Feller, Richard Pastor
 
