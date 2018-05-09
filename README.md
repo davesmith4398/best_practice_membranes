@@ -8,8 +8,6 @@ This repository contains a document and supporting materials to lay out best pra
 
 -David J. Smith, University of California, Santa Barbara, Santa Barbara, CA, USA
 
-People to invite:
-
 -Jeffery Klauda, University of Maryland, College Park, MD, USA
 
 -Alexander Sodt, National Institutes of Health, Bethesda, MD, USA
@@ -35,6 +33,8 @@ This paper is being developed as a living document, open to changes from the com
 -v1.0: Further refinement/wordsmithing; extensive sectioning, subsectioning, and subsubsectioning; brushing up of checklist and tables; and establishment of all links to references, sections/subsections/subsubsections, tables, and other best practices documents.
 
 # Changelog
+
+-5-10 May 2018: Incorporated comments and edits from JBK and AJS, including elaboration/clarification on some practical and theoretical concepts and reference additions/updates.
 
 -26 Mar 2018: Refined document further; established efficient sections, subsections, and subsubsections; completed all links to references, sections/subsections/subsubsections, tables, and other best practices documents.
 
