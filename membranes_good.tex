@@ -204,12 +204,8 @@ Transferability is ideal, especially for all- and united-atom force fields, but 
 \label{subsec:presim3}
 Once the model is selected, the pre-simulation considerations mainly concern the thermodynamic conditions under which the membrane simulation is ultimately going to be run.
 Proper control over membrane phase behavior and mechanical tension often necessitates the use of thermostats and barostats.
-%The relevant thermodynamic ensembles for the study of lipid membranes are the canonical ($NVT$) and multiphase ($NP_z \gamma T$) ensembles.
-%$NVT$ is appropriate for closed vesicles, due to their isotropic nature.
-%The multiphase ensemble is preferred for planar bilayers.
-% Not sure where you are getting this but this is no longer the norm..you generally want NPT and don't do NPgammaT unless you have a reason
 The relevant thermodynamic ensembles for the study of lipid membranes are the canonical ($NVT$), isobaric/isothermal ($NPT$) and multiphase ($NP_z \gamma T$) ensembles.
-In general, now with well-tuned force fields the semi-isotropic $NPT$ ensemble is recommended for planar bilayers with the constraint that the planar dimensions are equal ($x=y$).
+In general, now with well-tuned force fields the semi-isotropic $NP_{z}P_{xy}T$ ensemble is recommended for planar bilayers with the constraint that the planar dimensions are equal ($x=y$).
 Alternatively, the $NVT$ ensemble may be required to avoid cell dimension fluctuations, or the $NP_z \gamma T$ ensemble may be required to probe the effect of surface tension.
 
 The target temperature should be guided by the experimental correspondence.
@@ -221,7 +217,7 @@ Some models may accurately capture intermediate tilted gel $L_{\beta '}$, ripple
 Most simulations approximate a cellular membrane as a fluid lipid bilayer to match biological conditions, and build chemical and mechanical heterogeneity in later.
 
 For the multiphase and the isobaric/isothermal ensembles, pressure control will additionally be required.
-For membranes with the $NPT$ ensemble, pressure control is often conducted in a semiisotropic scheme to incorporate the isotropic conditions in the bilayer plane.
+For membranes with the isobaric/isothermal ensemble, pressure control is often conducted in a semi-isotropic scheme ($NP_{z}P_{xy}T$) to incorporate the isotropic conditions in the bilayer plane.
 Since experimental and biological membranes often operate at negligible tension (as their conjugate variable, the area per lipid, is unconstrained and therefore used to minimize the free energy), tensionless membranes are currently the most common.
 For membranes, the definition of tension is a precarious one that might not be trivial to a newcomer.
 While there is an important distinction between the frame tension $\tau$ and the Laplace tension $\gamma$, conjugate to the fluctuating membrane contour area, it has been clearly shown through thermodynamic arguments that these tensions and areas are directly related, and therefore not independent \cite{Diamant2011}.
@@ -293,7 +289,7 @@ For one example of the self-assembly technique, you can visit the Martini websit
 After the building step, the system should be minimized (without dynamics, at 0 K) to remove potential bad site contacts (steric overlap) generated during the original placement of molecules.
 Minimization routines like steepest descent are perfectly reasonable, and are available in conventional MD packages.
 
-Then, the system should be gradually annealed from 0 K to the target temperature in the relevant thermodynamic ensemble ($NVT$ or $NPT$, depending on whether or not a barostat will ultimately be used in the production run).
+Then, the system should be gradually annealed from 0 K to the target temperature in the relevant thermodynamic ensemble ($NVT$ or $NP_{z}P_{xy}T$, depending on whether or not a barostat will ultimately be used in the production run).
 In general, a short 100 ps to 1 ns run should suffice.
 The user may want to consider using position restraints during this process to prevent major lipid fluctuations, particularly if the templating method is used to initially build the bilayer. CHARMM-GUI provides a pre-described set of equilibration scripts that have been tested on various bilayers to work well and is recommended based on their initial structure.
 For soft enough interactions, you may be able to skip this step.
@@ -510,7 +506,7 @@ In general, even simulation methods for calculating $\kappa_G$ are controversial
 The difficulty in calculating $\kappa_G$ lies in controlling topology and boundary behaviors in which Gaussian curvature plays a role \cite{Hu2012a}.
 The stress profile approach, specifically involving the second moment, is not reliable here \cite{Hu2012a,Hu2013}.
 We recommend the patch closure method, which has shown promise in preliminary work \cite{Hu2012a}.
-Experimental analysis of the temperature dependence of the cubic to inverse hexagonal transition for N-monomethylated dioleoylphosphatidylethanolamine~\cite{Siegel2008} is one of the few hints, with $\frac{\kappa_G}{\kappa}=-0.927$.  
+Experimental analysis of the temperature dependence of the cubic to inverse hexagonal transition for N-monomethylated dioleoylphosphatidylethanolamine~\cite{Siegel2008} is one of the few hints, with $\kappa_G / \kappa = -0.927$. %$\frac{\kappa_G}{\kappa}=-0.927$.  
 Elasticity theories do offer predictions, for example, the simple approximation $\kappa_G \approx -\kappa$ \cite{Deserno2009,Hu2012a,Ramakrishnan2014c}.
 
 (6) A line tension (edge energy) $\Gamma$ is an energy per unit length that can describe lipid phase segregation and hole formation.
