@@ -775,13 +775,14 @@ Self-assembly, or even combining pre-existing bilayers to make a larger one, can
 In the absence of flip-flop, the leaflet composition of a self assembled bilayer is kinetically trapped.
 Given repeated trials of self-assembly, and assuming the end distribution samples the canonical ensemble (i.e., it is not influenced by kinetics) the distribution of compositions can be calculated (see, e.g., Ref.~\cite{Park2015a}).
 For example, consider a self assembled bilayer with $N_l=200$ total lipids with $a_l=65$ \AA$^2$ and $K_A$=300 mN/m.
-The strain energy is equal to $\frac{K_A}{2} N_l a_l \epsilon^2$, where $\epsilon=\frac{A-A_0}{A_0}$, $A \approx a_l N_l$ is the self-assembled area of the system, and $A_0$ is the minimum free energy leaflet area, given the self-assembled lipid count. 
+The strain energy is equal to $\frac{K_A}{2} N_l a_l \epsilon^2$, where $\epsilon=\frac{A-A_0}{A_0}$, $A \approx a_l N_l / 2$ is the self-assembled area of the system, and $A_0$ is the minimum free energy leaflet area, given the self-assembled lipid count. 
 The leaflet imbalance is characterized by $\Delta = N_\textrm{1} - N_\textrm{2}$, where $N_{1}$ ($N_2$) is the area of the one (the other) leaflet.
 Under these definitions the minimum free energy area of the first leaflet is $a_l N_1$.
-Each leaflet will have approximately the same strain magnitude: $|\epsilon| = \frac{\Delta}{N}$.   
+By periodic boundary conditions the two leaflets have the same projected area, $A$.
+Each leaflet will then have approximately the same strain magnitude: $|\epsilon| = \frac{\Delta}{N_l}$.   
 The Boltzmann distribution is then
 \begin{equation}
-p(\Delta) = e^{-\frac{\beta K_A a_l }{2 N_l} \Delta^2}, 
+p(\Delta) = e^{-\frac{\beta K_A a_l }{4 N_l} \Delta^2}, 
 \end{equation}
 that is, a normal distribution with variance $\sigma_\Delta^2 = \frac{2 N_l}{a_l \beta K_A}$.
 Here the strain energies of the individual leaflets (each with leaflet $K_A$ half that of the bilayer) have been summed.
