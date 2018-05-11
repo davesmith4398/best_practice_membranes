@@ -22,6 +22,7 @@
 \usepackage{enumitem}
 \usepackage{tabularx}
 \usepackage{amsmath}
+\usepackage{amssymb}
 %\usepackage{subfig}
 %\usepackage{subfigure}
 %\usepackage{subcaption}
@@ -462,10 +463,27 @@ Results can also be compared with predictions from polymer brush theories, where
 
 (3) The bending modulus (bending rigidity/constant) $\kappa$ determines the ability of the membrane to bend.
 The undulation spectrum method \cite{Goetz1999,Lindahl2000} is the traditional and well-established way to calculate $\kappa$.
-The spectrum describes the height-height correlations $\left|h_q\right|^2$ of the membrane continuum shape, and for a tensionless membrane, the large wavelength/small wavevector ($q$) behavior follows an inverse fourth power relation with a constant of proportionality that contains the bending modulus \cite{Goetz1999,Lindahl2000}:
+On the basis that at large enough scales, a membrane behaves as a two-dimensional surface, the free energy per lipid can be expanded in terms of the area per lipid and mean and Gaussian curvatures $H$ and $K_G$ respectively \cite{Safran1994}.
+In the absence of external stresses, a membrane minimizes its free energy with respect to area (i.e. it is tensionless), and shape (i.e. curvature) fluctuations are more accessible than expansion-compression (area compressibility) fluctuations.
+Canham and Helfrich developed a membrane Hamiltonian on this phenomenological basis, that a membrane has a preferred morphology (dictated by its spontaneous curvature $C_0$) and has deviations from that preferred curvature \cite{Canham1970b,Helfrich1973a}, resulting in:
 
 \begin{equation}\label{eq:8}
-	%\label{e:partition}
+	\mathcal{H} = \int dS (\kappa/2 (2H-C_0)^2+\kappa_G K_G)
+\end{equation}
+where $H\equiv(c_x+c_y)/2$ ($c_x$ and $c_y$ are the principal curvatures), $\kappa_G$ is the Gaussian curvature modulus, and $K_G\equiv c_x c_y$.
+This integral is performed over the entire surface of the membrane.
+The integral over the Gaussian curvature term depends on the membrane topology and boundary, and does not contribute to the membrane energetics when topology and boundary do not change (i.e. when there are no membrane fission/fusion events, no pores/pre-pores, etc.).
+In this definition, $\kappa$ is the bare bending modulus, a ``true bilayer property'' and enthalpic/elastic quantity that represents a spring constant for curvature deformations.
+For small deformations of a bilayer of zero spontaneous curvature ($C_0=0$), the first term of the integral is often presented in terms of the Monge gauge \cite{Safran1994}:
+
+\begin{equation}\label{eq:9}
+	\mathcal{H} = \int dxdy (\kappa/2 (\nabla^2 h(x,y))^2)
+\end{equation}
+where $h$ is the membrane height function and $x$ and $y$, as before, are the in-plane directions of the membrane.
+By introducing a Fourier representation for $h$ and applying the Equipartition Theorem, one can derive the height-height undulation spectrum \cite{Brown2008}.
+The spectrum describes the height-height correlations $\left|h_q\right|^2$ of the membrane continuum shape, and for a tensionless membrane, the large wavelength/small wavevector ($q$) behavior follows an inverse fourth power relation with a constant of proportionality that contains the bending modulus \cite{Goetz1999,Lindahl2000}:
+
+\begin{equation}\label{eq:10}
 	\left< \left|h_q \right|^2 \right> = k_BT/\kappa q^4
 \end{equation}
 The undulation spectrum method, however, must be used over "mesoscopic" length scales (approximately ten times the bilayer thickness, or about 50 nm / 5000 lipids) that are out of reach for AA and most CG simulations.
@@ -474,24 +492,33 @@ Also, there will simply not be a large enough range of wave vector magnitudes to
 For this reason, we recommend the lipid director field spectrum approach \cite{Watson2012a,Venable2015}, which analyzes thermal fluctuations of lipid orientation via a director vector field $\hat{n}_q$.
 Specifically, the longitudinal component $\hat{n}_q^{||}$ relates to the macroscopic bending modulus through an inverse second power relation in the wave vector:
 
-\begin{equation}\label{eq:9}
+\begin{equation}\label{eq:11}
 	%\label{e:partition}
 	\left< \left|\hat{n}_q^{||} \right| \right> = k_BT/\kappa q^2 \quad (recommended)
 \end{equation}
 The lipid director field spectrum method works well for "modestly sized" membranes, down to approximately three bilayer thicknesses ($\approx$12-15 nm); AA simulations of 648 lipids have been shown to be well converged.
 This general approach also provides a route to calculating bilayer tilt and twist moduli.
 Both the undulation and lipid director field spectrum approaches will take at least 100 ns to converge \cite{Venable2015}.
-Technically speaking, the bending modulus is not a material property; it is dependent on system size, and decreases at larger wavelengths $\lambda$ as $\kappa[\lambda] = \kappa _0 - 3k_BT/4\pi ln(\lambda a)$, where $a$ is some constant \cite{Peliti1985}.
+
+Equations ~\ref{eq:10} and ~\ref{eq:11} above relate membrane fluctuations to the bending modulus.
+It is important to note that the $\kappa$ resulting from these methods is actually an apparent/effective bending modulus, a free energetic quantity incorporating the effects of finite size (thermal fluctuations).
+The effective bending modulus is not a material property, and can be understood as a renormalization/correction from the bare value as first introduced by Peliti and Leibler.
+It is dependent on system size, and decreases at larger wavelengths $\lambda$ as $\kappa[\lambda] = \kappa _0 - 3k_BT/4\pi ln(\lambda a)$, where $\kappa_0$ is the bare modulus and $a$ is some constant \cite{Peliti1985}.
 The determination of the appropriate size renormalization is somewhat ambiguous, but the length scale of the relevant experimental system can be used as a guide.
+Furthermore, these techniques are only applicable in the small deformation/low curvature limit (i.e. in the absence of an external bending force).
+The bare bending modulus is a size-independent quantity applicable at larger deformations/higher curvatures where ground state energies are dominant and fluctuation effects are negligible, and therefore may be more experimentally relevant.
+Several, more user-intensive approaches have recently been introduced to directly measure the bare bending modulus \cite{Diggins2013,Hu2012a,Harmandaris2006a,DenOtter2003}; for more information, the interested reader is directed to those studies.
+
 Bending modulus results typically vary between 10 and 40 $k_BT$ \cite{Venable2015}, and can be compared with a host of experimental techniques, including flicker spectroscopy and micropipette aspiration.
 See Section~\ref{subsubsec:mecheval} for more details.
 Results can also be compared with polymer brush theory, which relates $\kappa$ to $K_A$ and the bilayer hydrophobic thickness $h_{phob}$ via $\kappa = K_Ah_{phob}^2/24$ \cite{Rawicz2000}.
+We do not recommend using polymer brush theory to obtain and report bending moduli, but recommend it as a point of comparison with bending moduli calculated from the techniques recommended above.
 
 (4) While lipid bilayers (planar and vesicular) have a net zero bilayer spontaneous curvature $C_0$, their monolayers individually may have a propensity to curve.
 This propensity is quantified by the monolayer spontaneous curvature $c_0$, and is defined to be positive for a lipid that forms micelles and negative for one that forms inverted micelles \cite{Venable2015}.
 Together with the monolayer bending modulus $\kappa_m$, $c_0$ is related to the first moment of the stress profile, integrated from the bilayer midplane to the upper edge of the simulation cell \cite{Safran1994}:
 
-\begin{equation}\label{eq:10}
+\begin{equation}\label{eq:12}
 	%\label{e:partition}
 	\kappa_m c_0 = \int_{0}^{L_z/2} z[P_{xy}(z) - P_z]dz
 \end{equation}
@@ -515,7 +542,7 @@ The bilayer is thus periodic in one lateral dimension and exposed in the other, 
 In this scenario, the line tension can be determined from the stress profile, specifically the lateral normal stresses.
 If the strip is periodic in $y$ and non-periodic in $x$, then:
 
-\begin{equation}\label{eq:11}
+\begin{equation}\label{eq:13}
 	%\label{e:partition}
 	\Gamma = \frac{1}{2}\ L_x L_y (P_{xx} - P_{yy})
 \end{equation}
@@ -620,7 +647,7 @@ In the MD loop, the most expensive step involves the pairwise force evaluations,
 Exact simulation time $t_{sim}$ scalings depend on the force field, and can range from $N \rho_{model}$ for short-ranged/mean field types of force fields to $NlogN$ (e.g. PME) to $N^2$ for long-ranged/rigorous pairwise interactions.
 Since the number of particles can be related to the system density $\rho_{model}$ and the system length scale $L$ (e.g. for a cubic box):
 
-\begin{equation}\label{eq:12}
+\begin{equation}\label{eq:14}
 	%\label{e:partition}
 	N = \left\{
         		\begin{array}{ll}
@@ -632,7 +659,7 @@ Since the number of particles can be related to the system density $\rho_{model}
 This scaling incorporates the model resolution $\rho_{model}$ and system size $L$/nature of solvent, respectively.
 Thus, for short-ranged interactions:
 
-\begin{equation}\label{eq:13}
+\begin{equation}\label{eq:15}
 	%\label{e:partition}
 	t_{sim} \propto \left\{
         		\begin{array}{ll}
@@ -643,7 +670,7 @@ Thus, for short-ranged interactions:
 \end{equation}
 and for long-ranged:
 
-\begin{equation}\label{eq:14}
+\begin{equation}\label{eq:16}
 	%\label{e:partition}
 	t_{sim} \propto \left\{
        		 \begin{array}{ll}
@@ -833,7 +860,8 @@ This has been found to be consistent with a characteristic domain size of 150-50
 
 Experimental diffusivity estimates can vary for a number of reasons.
 First, diffusivities can be determined from a variety of methods, including fluorescence techniques (e.g. fluorescence recovery after photobleaching, FRAP, and fluorescence correlation spectroscopy, FCS), quasi-elastic neutron scattering, EPR, and NMR, amongst others.
-The time scale of study can vary significantly with different methods; for example, EPR and NMR measure motions over distances and time scales around > 0.1 m and ns-ms, much longer than neutron scattering at 0.1-10 nm and < 1 ns.
+The time scale of study can vary significantly with different methods; for example, EPR and NMR measure motions over distances and time scales around > 0.1 m and ns-ms, much longer than quasi-elastic neutron scattering at 0.1-10 nm and < 1 ns \cite{Poger2016}.
+(Furthermore, neutron spin echo spectroscopy has recently been shown to probe $\sim$100 ns and obtain membrane viscosity estimates that can be used to estimate in-plane diffusivity \cite{Nagao2017}.)
 While different regimes of diffusion may exist across different lag time scales (most notably, non-classical subdiffusion; see above), fits and comparisons from very different time scales can also be prone to significant statistical error.
 In some of these techniques (e.g. FCS, FRAP), the use of labeled lipids instead of the normal lipids biases the calculations for lipid diffusion.
 In addition to the increased drag that the label introduces, dynamics can also be impacted by label concentration.
