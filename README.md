@@ -16,8 +16,6 @@ This repository contains a document and supporting materials to lay out best pra
 
 -Alan M. Grossfield, University of Rochester Medical Center, Rochester, NY, USA
 
-People to (possibly) invite: Scott Feller, Richard Pastor
-
 # Contributing to the effort
 
 This document is intended to be a guide that strikes a balance between completeness and prioritization. Think of this as a "quick-start" guide to express key concepts, with references to other sources for further information. If you would like to work on a section, please put your name in comments near the section or subsection title. You are welcome to work on latex "subfiles" or directly in the main document ("membranes_good.tex"). As discussed below, all contributions will be reviewed through pull requests, as well as sign-off from authors before submission.
@@ -33,6 +31,8 @@ This paper is being developed as a living document, open to changes from the com
 -v1.0: Further refinement/wordsmithing; extensive sectioning, subsectioning, and subsubsectioning; brushing up of checklist and tables; and establishment of all links to references, sections/subsections/subsubsections, tables, and other best practices documents.
 
 # Changelog
+
+-14 Sep 2018: Extensive updates in response to official reviewer feedback, including improved/streamlined text and additional tables, figures, and references.
 
 -5-10 May 2018: Incorporated comments and edits from JBK and AJS, including elaboration/clarification on some practical and theoretical concepts and reference additions/updates.
 
