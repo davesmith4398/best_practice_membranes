@@ -16,6 +16,8 @@ This repository contains a document and supporting materials to lay out best pra
 
 -Alan M. Grossfield, University of Rochester Medical Center, Rochester, NY, USA
 
+-O. H. Samuli Ollila, University of Helsinki and Czech Academy of Sciences
+
 # Contributing to the effort
 
 This document is intended to be a guide that strikes a balance between completeness and prioritization. Think of this as a "quick-start" guide to express key concepts, with references to other sources for further information. If you would like to work on a section, please put your name in comments near the section or subsection title. You are welcome to work on latex "subfiles" or directly in the main document ("membranes_good.tex"). As discussed below, all contributions will be reviewed through pull requests, as well as sign-off from authors before submission.
