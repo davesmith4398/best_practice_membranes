@@ -135,8 +135,7 @@ We hope to allow early-career researchers to quickly overcome common obstacles i
 Lipid bilayer membranes have diverse applications in soft matter physics, pharmacology, and consumer products, and are first approximants to biological membranes.
 Lipid bilayers are structures consisting of two molecularly-thick layers, or leaflets, on the scale of nanometers in aqueous solvent.
 In these structures, molecules are oriented with their polar head groups pointing outward towards the solvent and their nonpolar tail groups pointing inward towards the other leaflet.
-The dominant driving f
-es in their formation and stability include $(1)$ hydrophobic and dispersion interactions, wherein the lipid tail groups maximize their contacts with each other and minimize their contacts with water, decreasing area per lipid and $(2)$ head group electrostatic/excluded-volume repulsion and tail group conformational entropy, which work to increase the area per lipid ~\cite{Ben-Shaul1995}.
+The dominant driving forces in their formation and stability include $(1)$ hydrophobic and dispersion interactions, wherein the lipid tail groups maximize their contacts with each other and minimize their contacts with water, decreasing area per lipid and $(2)$ head group electrostatic/excluded-volume repulsion and tail group conformational entropy, which work to increase the area per lipid ~\cite{Ben-Shaul1995}.
 
 Generally, cylinder-shaped lipids form quasi-two-dimensional lamellae (macroscopic in two dimensions and nanoscopic in the third), while conical (larger headgroup) and inverse conical (smaller headgroup) lipid amphiphiles more favorably form micelles and inverted micelles, respectively ~\cite{Israelachvili2011}; however, this simple view of lipids has recently been of debate ~\cite{Sodt2016}.
 Lamellar lipid bilayers often exist as multilayered vesicles, also known as liposomes--basically bilayer spheres--in solution, but can also exist in model experiments as planar bilayers across an aperture (black lipid membranes, or BLMs), laying on a solid support (supported lipid bilayers/SLBs), or directly anchored by a solid substrate (tethered bilayer lipid membranes/t-BLMs).
@@ -403,7 +402,7 @@ This is especially true for lipid lateral clustering and radial distribution fun
 Finally, the initial estimation of the production run time is useful.
 You will ultimately want to incorporate an adequate amount of sampling for your phenomenon/phenomena of interest.
 In general, this means capturing several autocorrelation times for the relevant degrees of freedom.
-Lipid membranes are characterized by a hierarchy of time scales, including: bond vibrations (fs-ns), trans-gauche isomerization and rotation about chemical bonds (1-100 ps), rotation or axial diffusion about the lipid axis and wobbling (1-100ns), lateral diffusion (1-100 $\mu$s), and flip-flop (1 ms-1 s for most lipids ~\cite{Vermeer2007,Konig1996,Leftin2011}; shorter for cholesterol) and undulations ($\mu$1 ms-1 s for experimental system sizes ~\cite{Vermeer2007} and down to $\sim$100 ns-1 us for typical simulation ~\cite{Bochicchio2016}).
+Lipid membranes are characterized by a hierarchy of time scales, including: bond vibrations (fs-ns), trans-gauche isomerization and rotation about chemical bonds (1-100 ps), rotation or axial diffusion about the lipid axis and wobbling (1-100ns), lateral diffusion (1-100 $\mu$s), and flip-flop (1 ms-1 s for most lipids ~\cite{Vermeer2007,Konig1996,Leftin2011}; shorter for cholesterol) and undulations (1 ms-1 s for experimental system sizes ~\cite{Vermeer2007} and down to $\sim$100 ns-1 us for typical simulation ~\cite{Bochicchio2016}).
 Collective order fluctuations such as undulations, flip-flop, lateral diffusion are the longest timescale fluctuations in the system because they involve the coordination and motion of several lipids  ~\cite{Vermeer2007}.
 Even at equilibrium, area per lipid can fluctuate in simulations on the time scale of tens of nanoseconds  ~\cite{Poger2016,Venable2015}.
 However, if your study concerns more localized or molecular degrees of freedom such as rotation about chemical bonds, trans-gauche isomerization, and lipid axial diffusion at constant membrane macroscopic shape and lipid leaflet number, then smaller sampling times may be permissible.
@@ -479,7 +478,7 @@ For example, it is appropriate to ask the question ``Does the model capture the 
 Despite its importance, however, the stress profile is often more difficult and expensive to calculate.
 One means of calculating is through GROMACS-LS, a customized version of the MD package GROMACS.
 GROMACS-LS can even calculate stress component profiles, including those arising from van der Waals and electrostatic interactions.
-For more information about package and theory: \url{http://mdstress.org/} ~\cite{Torres-Sanchez2016,Torres-Sanchez2015,Vanegas2014a,Ollila2009}.
+For more information about package and theory: \url{https://mdstress.org/} ~\cite{Torres-Sanchez2016,Torres-Sanchez2015,Vanegas2014a,Ollila2009}.
 As an important verifying metric of force field development, the stress profile can be thoroughly compared with existing atomistic simulation studies.
 There is no direct means of stress profile comparison with experiments, though as we will explain, properties calculated from the stress profile can be compared with experiment (Section~\ref{subsubsec:mechprops}).
 
@@ -553,7 +552,7 @@ A value of 1 indicates perfect alignment of the chain with the global bilayer no
 This metric, however, can be ambiguous.
 For example, a value of zero can mean either that the lipids are isotropically disordered with respect to the bilayer normal, or that the lipids are perfectly oriented at a constant angle equal to the ``magic angle'' of 54.74$^{\circ}$ ~\cite{Poger2016}.
 
-$NMRlipids$ (\url{www.nmrlipids.fi}) is a particularly new and multi-stage initiative launched by S. Ollila to determine the best possible lipid force fields on the basis of predicting NMR order parameters.
+$NMRlipids$ (\url{https://www.nmrlipids.fi}) is a particularly new and multi-stage initiative launched by S. Ollila to determine the best possible lipid force fields on the basis of predicting NMR order parameters.
 This initiative provides excellent guidance for simulation studies where correctly capturing these properties is essential.
 Piggot et al. ~\cite{Piggot2017a} evaluates a host of tools for the calculation of NMR order parameters in simulation.
 The study finds that, while existing tools are sufficient for saturated and all-atom lipids, some tools suffer from severe inaccuracies for unsaturated and united-atom ones ~\cite{Piggot2017a}.
@@ -777,8 +776,8 @@ While thickness, area per lipid, deuterium order parameter, and lipid lateral di
 \item From the desired membrane size and geometry, estimate the number of required lipids (Equations~\ref{eq:2} and \ref{eq:4a}).
 \item Estimate the number of solvent molecules and full periodic box dimensions (Equations~\ref{eq:3} and \ref{eq:4b}).
 \item Using the above estimates, proceed through to system setup. See Section~\ref{subsubsec:construction} for options.
-\item Minimize (no dynamics) to remove bad site contacts
-\item Anneal from 0 K to target temperature
+\item Minimize (no dynamics) to remove bad site contacts.
+\item Anneal from 0 K to target temperature.
 \item Equilibration
 	\begin{itemize}
 	\item For a templated membrane, just equilibrate
@@ -922,7 +921,7 @@ Lipid14 ~\cite{Dickson2014} & \begin{minipage}[t]{\linewidth} \begin{itemize}[no
 \hline
 OPLS-AA ~\cite{Maciejewski2014} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Captures experimental area per lipid and X-ray form factors \item Captures deuterium order parameters overall \item Compatible with OPLS for organic liquid molecules, proteins, nucleic acids, carbohydrates, and drug molecules ~\cite{Lyubartsev2016} \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Limited range of lipids covered (lowest for AA lipid FFs) \item Discrepancies with experimental deuterium order parameters for first carbon along acyl chains ~\cite{Lyubartsev2016} \end{itemize} \end{minipage} \\
 \hline
-\textbf{\textit{United Atom (UA)}} & \textbf{\textit{Detailed, and yet $\sim$2-3 times more efficient that AA simulations without explicitly including non-polar hydrogens}} & \textbf{\textit{Still expensive and impractical for large-scale membrane simulations; does not account for polarizability}} \\
+\textbf{\textit{United Atom (UA)}} & \textbf{\textit{Detailed, and yet $\sim$2-3 times more efficient than AA simulations without explicitly including non-polar hydrogens}} & \textbf{\textit{Still expensive and impractical for large-scale membrane simulations; does not account for polarizability}} \\
 \hline
 GROMOS (e.g. 45A3 ~\cite{Chandrasekhar2003}, 53A ~\cite{Oostenbrink2004}, 54A ~\cite{Poger2010a}, Berger modification ~\cite{Berger1997b}) & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Focus on capturing enthalpies and free energies of solvation \item Diverse options of lipids similar to the level of diversity in CHARMM36 \item Compatible with GROMOS parameter sets for proteins, carbohydrates, and nucleic acids \item Parameterization available for small molecules (e.g. Automated Topology Builder ~\cite{Malde2011}) ~\cite{Javanainen2016,Lyubartsev2016} \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Problems in representing proper gel phase of bilayer at temperatures below melting point ~\cite{Lyubartsev2016} \end{itemize} \end{minipage} \\
 \hline
@@ -1089,7 +1088,7 @@ Self-Assembly & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\str
 \label{subsubsec:otherandhybridmtds}
 One fairly simple alternative to building a membrane oneself is downloading a pre-equilibrated membrane from a lipid library ~\cite{Javanainen2016}.
 Membranes from a library can either be used directly or to make larger membrane structures.
-Examples include $lipidbook$ (\url{lipidbook.bioch.ox.ac.uk}) and $zenodo$ (\url{www.zenodo.org}).
+Examples include $lipidbook$ (\url{https://lipidbook.bioch.ox.ac.uk}) and $zenodo$ (\url{http://www.zenodo.org}).
 The advantages of using a library are that the structures used are inherently validated by potentially more experienced researchers, and that the results one obtains can be directly compared with the previously published data associated with a given structure.
 The downsides are that libraries are still somewhat specialized and scattered on the web, and that the translation of structures files across force fields and packages can be a nontrivial process ~\cite{Javanainen2016}.
 
@@ -1201,7 +1200,7 @@ However, this can be difficult, especially for membranes with large deformations
 One analysis package that overcomes these complications is the Fast Analysis Toolbox for Simulations of Lipid Membranes (FATSLiM).
 FATSLiM ~\cite{Buchoux2017} is a Python-based package designed to work with GROMACS that, for every simulation frame, can estimate the normal for every lipid via principal component analysis of each lipid and its neighbors.
 Therefore, it can approximate the membrane surface in a morphology-independent manner--in other words, it can be applied to planar and vesicular membranes alike, unlike the packages APL@Voro ~\cite{Lukat2013}, MEMBPLUGIN ~\cite{Guixa-Gonzalez2014a}, and GridMAT-MD ~\cite{Truhlar2009a}--and can determine membrane leaflets, thickness, and area per lipid.
-FATSLiM is both efficient and low-memory-consuming relative to APL@Voro, and documentation is available at: \url{http://pythonhosted.org/fatslim}.
+FATSLiM is both efficient and low-memory-consuming relative to APL@Voro, and documentation is available at: \url{https://pythonhosted.org/fatslim}.
 
 One class of metrics that require leaflet identification are those associated with lipid coordination.
 The lipid coordination number can be used in phase transitions and coexistence to distinguish between fluid and gel phases, which have markedly different values, and to characterize the segregation of multicomponent bilayers--for example, whether cholesterol segregates with lipid X or lipid Y.
@@ -1211,7 +1210,7 @@ There are several other structural, thermodynamic, and dynamic techniques for de
 
 \subsubsection{Other properties \& relevant resources}
 \label{subsubsec:otherprops}
-In order to simulate biologically-relevant transmembrane voltage gradients, there are several possible simulation ``tricks.''
+In order to simulate biologically-relevant transmembrane voltage gradients, there are several possible simulation ``tricks''.
 The major problem is the need to use PBCs in simulations, which prevent the setup of a charge gradient.
 A well-accepted solution is to simulate two bilayers in a single simulation cell, separating the salt baths for the charge gradient.
 For more details, see the work of Sachs, Crozier, and Woolf ~\cite{Sachs2004}.
