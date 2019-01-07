@@ -662,7 +662,7 @@ The spectrum describes the height-height correlations $\left|h_q\right|^2$ of th
 \begin{equation}\label{eq:10}
 	\left< \left|h_q \right|^2 \right> = \frac{k_BT}{\kappa q^4}\
 \end{equation}
-The undulation spectrum method, however, must be used over ``mesoscopic'' length scales, approximately ten times the bilayer thickness, or about 50 nm / 5000 lipids, that are out of reach for AA and most CG simulations.
+The undulation spectrum method, however, must be used over ``mesoscopic'' length scales, approximately ten times the bilayer thickness, or about 50 nm/5000 lipids, that are out of reach for AA and most CG simulations.
 If simulations are too small, deviations to the undulation spectrum will result from individual lipid tilting (below ten thicknesses) and protrusions (below three thicknesses) ~\cite{Venable2015}.
 Also, there will simply not be a large enough range of wave vector magnitudes to fit the spectrum and obtain a bending modulus estimate.
 
@@ -750,17 +750,17 @@ While thickness, area per lipid, deuterium order parameter, and lipid lateral di
 \item Lay out problem/phenomenon of interest, and establish whether or not molecular simulations are needed.
 \item If molecular simulations are needed, determine:
 	\begin{itemize}
-	\item Available computing resources (cores, memory, storage, etc.)
+	\item Available computing resources (cores, memory, storage, etc.).
 	\item Desired lamellar membrane configuration (planar vs. vesicular). See Section~\ref{subsubsec:geometry} for details.
 	\item Relevant length and time scales of the system of study (or, if possible, of an appropriate subsystem). See Sections~\ref{subsubsec:prodrun} and \ref{subsubsec:size} for a discussion.
-	\item Primary properties of interest (structural, mechanical, thermodynamic, and/or dynamic)
-	\item Required spatiotemporal resolution; desired membrane composition; relevance of ions
+	\item Primary properties of interest (structural, mechanical, thermodynamic, and/or dynamic).
+	\item Required spatiotemporal resolution; desired membrane composition; relevance of ions.
 	\end{itemize}
 \item Based on the above considerations, determine the optimal model in terms of accuracy and efficiency.
 \end{itemize}
 \end{checklist}
 
-\begin{checklist}{2. Pre-Simulation Considerations / Selection of MD Settings}
+\begin{checklist}{2. Pre-Simulation Considerations/Selection of MD Settings}
 \textbf{Goal: establish rational and physically-intuitive settings for the desired lipid membrane simulation.}
 \begin{itemize}
 \item Determine desired thermodynamic ensemble.
@@ -780,8 +780,8 @@ While thickness, area per lipid, deuterium order parameter, and lipid lateral di
 \item Anneal from 0 K to target temperature.
 \item Equilibration
 	\begin{itemize}
-	\item For a templated membrane, just equilibrate
-	\item For membrane self-assembly, assemble, then equilibrate
+	\item For a templated membrane, just equilibrate.
+	\item For membrane self-assembly, assemble, then equilibrate.
 	\end{itemize}
 \item Qualitatively confirm equilibrium structure and quantitatively confirm equilibration of thermodynamic averages before a production run.
 \item Rotate/re-center system as necessary.
@@ -792,7 +792,7 @@ While thickness, area per lipid, deuterium order parameter, and lipid lateral di
 \begin{checklist}{Simulation Production Run}
 \end{checklist}
 
-\begin{checklist}{4. Post-Simulation Considerations / Validation of Calculated Properties}
+\begin{checklist}{4. Post-Simulation Considerations/Validation of Calculated Properties}
 \textbf{Goal: comprehensively justify simulation procedure and model selection via rigorous production run analysis.}
 \begin{itemize}
 \item Calculate and validate bilayer structure via thickness, area per lipid, scattering form factors, and NMR order parameters.
@@ -919,7 +919,7 @@ Slipids ~\cite{Jambeck2012,Jambeck2012b,Jambeck2013a} & \begin{minipage}[t]{\lin
 \hline
 Lipid14 ~\cite{Dickson2014} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Captures experimental area per lipid, volume per lipid, lipid thickness, NMR order parameters, scattering data, and lateral lipid diffusion \item Allows tensionless $NPT$ simulations of a number of lipid types and cholesterol ~\cite{Javanainen2016} \item Compatible with AMBER protein, nucleic acid, carbohydrate, and small molecule force fields ~\cite{Lyubartsev2016} \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Limited to a few lipids and less diverse compared to Slipids and CHARMM36 (saturated, monounsaturated, PC and PE lipids) \end{itemize} \end{minipage} \\
 \hline
-OPLS-AA ~\cite{Maciejewski2014} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Captures experimental area per lipid and X-ray form factors \item Captures deuterium order parameters overall \item Compatible with OPLS for organic liquid molecules, proteins, nucleic acids, carbohydrates, and drug molecules ~\cite{Lyubartsev2016} \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Limited range of lipids covered (lowest for AA lipid FFs) \item Discrepancies with experimental deuterium order parameters for first carbon along acyl chains ~\cite{Lyubartsev2016} \end{itemize} \end{minipage} \\
+OPLS-AA ~\cite{Maciejewski2014} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Captures experimental area per lipid and x-ray form factors \item Captures deuterium order parameters overall \item Compatible with OPLS for organic liquid molecules, proteins, nucleic acids, carbohydrates, and drug molecules ~\cite{Lyubartsev2016} \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Limited range of lipids covered (lowest for AA lipid FFs) \item Discrepancies with experimental deuterium order parameters for first carbon along acyl chains ~\cite{Lyubartsev2016} \end{itemize} \end{minipage} \\
 \hline
 \textbf{\textit{United Atom (UA)}} & \textbf{\textit{Detailed, and yet $\sim$2-3 times more efficient than AA simulations without explicitly including non-polar hydrogens}} & \textbf{\textit{Still expensive and impractical for large-scale membrane simulations; does not account for polarizability}} \\
 \hline
@@ -1167,9 +1167,9 @@ We outline the merits of each umbrella of approaches for calculating mechanical 
 \hline
 \textbf{Class of Methods} & \textbf{Advantages} & \textbf{Disadvantages} \\
 \hline
-Equilibrium Fluctuations & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Theoretically consistent/rigorous and elegant (admitted directly from Landau-Ginzburg and related approaches, e.g. Canham-Helfrich) \item No additional user input required (just run the simulation!) \item Well documented and generally the preferred choice in the membrane theory and simulation community \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Can only study and apply results to small deformation limit; not necessarily relevant to strong deformations  ~\cite{Diggins2013} \item Can take a long time for statistics to converge / fluctuations to develop  ~\cite{Harmandaris2006a} \item Low signal-to-noise ratio \item Grid analysis in post-processing can be expensive \end{itemize} \end{minipage} \\
+Equilibrium Fluctuations & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Theoretically consistent/rigorous and elegant (admitted directly from Landau-Ginzburg and related approaches, e.g. Canham-Helfrich) \item No additional user input required (just run the simulation!) \item Well documented and generally the preferred choice in the membrane theory and simulation community \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Can only study and apply results to small deformation limit; not necessarily relevant to strong deformations  ~\cite{Diggins2013} \item Can take a long time for statistics to converge/fluctuations to develop  ~\cite{Harmandaris2006a} \item Low signal-to-noise ratio \item Grid analysis in post-processing can be expensive \end{itemize} \end{minipage} \\
 \hline
-Local Thermodynamics / Stress Profile & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Theoretically motivated \item No additional user input required (just run the simulation!) \item Consistent with rationale for simulation pressure coupling scheme and Laplace tension (and therefore frame tension), i.e. equation for justifying tension settings in simulation is a specific case (Equation~\ref{eq:1}) \item The only route to calculating certain properties (tension, monolayer spontaneous curvature) \item Profile also be used to understand local stresses and molecular driving forces \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Rigorous implementation (although codes exist); expensive voxel analysis in post-processing \item Certain moments give you combinations of properties rather than individual ones, and are therefore dependent on other techniques \item Slow convergence \item Low signal-to-noise ratio (seeking small numbers often from largely-fluctuating ones) \end{itemize} \end{minipage} \\
+Local Thermodynamics/Stress Profile & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Theoretically motivated \item No additional user input required (just run the simulation!) \item Consistent with rationale for simulation pressure coupling scheme and Laplace tension (and therefore frame tension), i.e. equation for justifying tension settings in simulation is a specific case (Equation~\ref{eq:1}) \item The only route to calculating certain properties (tension, monolayer spontaneous curvature) \item Profile also be used to understand local stresses and molecular driving forces \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Rigorous implementation (although codes exist); expensive voxel analysis in post-processing \item Certain moments give you combinations of properties rather than individual ones, and are therefore dependent on other techniques \item Slow convergence \item Low signal-to-noise ratio (seeking small numbers often from largely-fluctuating ones) \end{itemize} \end{minipage} \\
 \hline
 Biased/Active Deformations & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Theoretically motivated \item Applicable to large-scale deformations (potentially more physically relevant), with a broader range of permissible deformations overall; capable of addressing nonlinear and higher-order effects on mechanical properties at higher deformations ~\cite{Harmandaris2006a} \item Often more efficient/do not require long sampling times, due to probing of ground state energies over fluctuations ~\cite{Bochicchio2016,Harmandaris2006a} \item Less sensitive to finite-size effects ~\cite{Harmandaris2006a} \item High signal-to-noise ratio (ground state energies dominant over thermal fluctuations) ~\cite{Bochicchio2016} \end{itemize} \end{minipage} & \begin{minipage}[t]{\linewidth} \begin{itemize}[nosep,after=\strut] \item Don't necessarily allow for pressure and lipid number asymmetry relaxation along the deformation process ~\cite{Bochicchio2016} \item Limited to pure membranes due to the possibility of composition-curvature inhomogeneities otherwise ~\cite{Bochicchio2016} \item In extreme circumstances, can induce phase transformations ~\cite{Bochicchio2016} \item Requires additional user input: some biasing scheme and/or nontrivial simulation setup (e.g. tether) for the calculation \end{itemize} \end{minipage} \\
 \hline
