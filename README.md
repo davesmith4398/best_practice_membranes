@@ -34,7 +34,7 @@ This paper is being developed as a living document, open to changes from the com
 
 # Changelog
 
--2 Jan 2019: Uploaded Published Version (1.0)
+-7 Jan 2019: Uploaded Published Version (1.0)
 
 -21 Dec 2018: Uploaded ASAP Version (1.0)
 
